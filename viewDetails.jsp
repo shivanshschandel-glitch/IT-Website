@@ -7,7 +7,7 @@
     String dbPort = "3306";
     String dbName = "event_db";
     String dbUser = "root";
-    String dbPass = "Silentkiller@2706";
+    String dbPass = "";
 
     Connection con = null;
     Statement stmt = null;
