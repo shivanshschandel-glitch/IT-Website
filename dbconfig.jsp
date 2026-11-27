@@ -6,7 +6,7 @@
     public static final String DB_PORT = "3306";
     public static final String DB_NAME = "event_db";
     public static final String DB_USER = "root";
-    public static final String DB_PASS = "Silentkiller@2706"; 
+    public static final String DB_PASS = ""; 
     public static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 
     public static Connection getConnection() throws Exception {
