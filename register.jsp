@@ -8,7 +8,7 @@
     String dbPort = "3306";
     String dbName = "event_db";
     String dbUser = "root";
-    String dbPass = "Silentkiller@2706";
+    String dbPass = "";
 
     boolean isPost = "POST".equalsIgnoreCase(request.getMethod());
     boolean success = false;
