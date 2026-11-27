@@ -1,0 +1,258 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Form - Department of IT</title>
+    <!-- Modern Typography & Bootstrap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            font-family: var(--font-body);
+            color: #1e293b;
+        }
+
+        .reg-card {
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 16px 40px -10px rgba(15, 23, 42, 0.08);
+            overflow: hidden;
+        }
+
+        .reg-header-banner {
+            background: linear-gradient(135deg, #091124 0%, #0f1c3f 60%, #1e3a8a 100%);
+            color: #ffffff;
+            padding: 36px 32px;
+            position: relative;
+        }
+
+        .reg-header-banner h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .form-floating > .form-control:focus ~ label,
+        .form-floating > .form-control:not(:placeholder-shown) ~ label {
+            color: var(--primary);
+        }
+
+        .input-group-text {
+            background-color: #f8fafc;
+            border-right: none;
+            color: #64748b;
+        }
+
+        .form-control-custom {
+            border-left: none;
+            padding: 12px 14px;
+            font-size: 15px;
+        }
+
+        .form-control-custom:focus {
+            box-shadow: none;
+            border-color: #cbd5e1;
+        }
+
+        .input-group:focus-within {
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+            border-radius: 8px;
+        }
+
+        .input-group:focus-within .input-group-text,
+        .input-group:focus-within .form-control {
+            border-color: var(--primary);
+        }
+
+        .gender-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 10px 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gender-card:hover {
+            border-color: #93c5fd;
+            background: #f8fafc;
+        }
+
+        .form-check-input:checked ~ .gender-label {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: #ffffff;
+            border: none;
+            font-weight: 600;
+            padding: 12px 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
+            transition: all 0.25s ease;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+            box-shadow: 0 8px 22px rgba(37, 99, 235, 0.45);
+            transform: translateY(-2px);
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="py-5">
+    <div class="container" style="max-width: 860px;">
+        
+        <div class="reg-card">
+            
+            <!-- Card Header Banner -->
+            <div class="reg-header-banner">
+                <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                    <span class="badge bg-primary bg-opacity-35 text-white border border-primary border-opacity-50 px-3 py-1.5 rounded-pill small">
+                        <i class="bi bi-calendar-event me-1"></i> Experiment 7 &bull; JSP &amp; MySQL
+                    </span>
+                    <div class="d-flex gap-2">
+                        <a href="viewDetails.jsp" class="btn btn-sm btn-outline-light rounded-pill px-3">
+                            <i class="bi bi-people-fill me-1"></i> Registered Records
+                        </a>
+                        <a href="dbconfig.jsp" class="btn btn-sm btn-outline-light rounded-pill px-3">
+                            <i class="bi bi-database-gear me-1"></i> DB Setup
+                        </a>
+                    </div>
+                </div>
+                <h2>Event Registration Form</h2>
+                <p class="text-slate-300 mb-0 opacity-75">
+                    Enter participant credentials to store enrollment data directly in the SQL database via JSP.
+                </p>
+            </div>
+
+            <!-- Card Body / Form -->
+            <div class="p-4 p-md-5">
+                <form action="register.jsp" method="POST" id="regForm">
+                    
+                    <!-- Section: Personal Information -->
+                    <div class="mb-4">
+                        <h5 class="fw-bold text-dark mb-3">
+                            <i class="bi bi-person-badge text-primary me-2"></i>Participant Identity
+                        </h5>
+                        
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6">
+                                <label for="fullname" class="form-label fw-semibold small text-muted">Full Name <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                                    <input type="text" class="form-control form-control-custom" id="fullname" name="fullname" placeholder="e.g. Rahul Sharma" required>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label for="email" class="form-label fw-semibold small text-muted">Email Address <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                                    <input type="email" class="form-control form-control-custom" id="email" name="email" placeholder="rahul@example.com" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section: Course & Academic Selection -->
+                    <div class="mb-4">
+                        <h5 class="fw-bold text-dark mb-3">
+                            <i class="bi bi-mortarboard-fill text-primary me-2"></i>Academic Track &amp; Address
+                        </h5>
+
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6">
+                                <label for="course" class="form-label fw-semibold small text-muted">Select Event Course Track <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-laptop"></i></span>
+                                    <select class="form-select form-control-custom" id="course" name="course" required>
+                                        <option value="">-- Choose a Course Track --</option>
+                                        <option value="web-dev">🌐 Web Development Track</option>
+                                        <option value="code">💻 Coding &amp; Programming</option>
+                                        <option value="cyber">🛡️ CyberSecurity Specialization</option>
+                                        <option value="ai-ml">🤖 Artificial Intelligence &amp; ML</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <label for="address" class="form-label fw-semibold small text-muted">Residential / Hostel Address <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-geo-alt-fill"></i></span>
+                                    <textarea class="form-control form-control-custom" id="address" name="address" rows="2" placeholder="Hostel / City address" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section: Gender Selection -->
+                    <div class="mb-5">
+                        <label class="form-label fw-semibold small text-muted d-block mb-2">Gender Category <span class="text-danger">*</span></label>
+                        <div class="row g-3">
+                            <div class="col-4">
+                                <div class="gender-card">
+                                    <input class="form-check-input mt-0" type="radio" name="gender" id="male" value="male" required>
+                                    <label class="form-check-label gender-label w-100" for="male">
+                                        <i class="bi bi-gender-male text-primary me-1"></i> Male
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="gender-card">
+                                    <input class="form-check-input mt-0" type="radio" name="gender" id="female" value="female">
+                                    <label class="form-check-label gender-label w-100" for="female">
+                                        <i class="bi bi-gender-female text-danger me-1"></i> Female
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="gender-card">
+                                    <input class="form-check-input mt-0" type="radio" name="gender" id="other" value="other">
+                                    <label class="form-check-label gender-label w-100" for="other">
+                                        <i class="bi bi-person text-secondary me-1"></i> Other
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="d-flex flex-wrap gap-3 justify-content-between align-items-center pt-4 border-top">
+                        <button type="reset" class="btn btn-outline-secondary px-4 py-2 rounded-3">
+                            <i class="bi bi-arrow-counterclockwise me-1"></i> Clear Form
+                        </button>
+
+                        <button type="submit" class="btn btn-submit px-5 py-2.5">
+                            <i class="bi bi-check2-circle me-1"></i> Submit &amp; Save Registration
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

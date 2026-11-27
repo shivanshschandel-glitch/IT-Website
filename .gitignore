@@ -1,0 +1,13 @@
+# Ignore large video files (exceeds GitHub 100MB limit)
+*.mp4
+*.avi
+*.mkv
+
+# Temporary and log files
+*.log
+*.tmp
+*.bak
+
+# OS specific files
+Thumbs.db
+.DS_Store

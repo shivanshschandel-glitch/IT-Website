@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Website (Single Iframe Architecture)</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0f172a;
+            padding: 0 40px;
+            height: 70px;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+            display: block;
+        }
+
+        nav ul.nav-menu {
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            padding: 10px 22px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #94a3b8;
+            background-color: transparent;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-link.active {
+            color: #ffffff;
+            background-color: #2563eb;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+        }
+
+        .main-content {
+            flex: 1;
+            width: 100%;
+        }
+
+        .content {
+            width: 100%;
+            border: none;
+            height: calc(100vh - 120px);
+            min-height: 750px;
+            display: block;
+            background-color: #ffffff;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0f172a;
+            color: #94a3b8;
+            height: 50px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            border-radius: 50%;
+            background-color: #2563eb;
+            color: #ffffff !important;
+            height: 48px;
+            width: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div id="top"></div>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Information Department Logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="Experiment4.html" target="content-frame" class="nav-link active">Home</a></li>
+                <li><a href="../HTML/Experiment2.html" target="content-frame" class="nav-link">Services</a></li>
+                <li><a href="Experiment7.html" target="content-frame" class="nav-link">Registration</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Single target iframe -->
+        <iframe name="content-frame" class="content" src="Experiment4.html" title="Page Viewer"></iframe>
+    </main>
+
+    <footer>
+        <p>&#169; 2026 IT, Inc. or its affiliates. All rights reserved.</p>
+    </footer>
+
+    <a href="#top" class="back-to-top">↑</a>
+
+    <script>
+        const links = document.querySelectorAll('.nav-link');
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                links.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

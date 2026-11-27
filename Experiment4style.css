@@ -1,0 +1,369 @@
+/* ==========================================================================
+   Experiment 4 - Departmental Profile Stylesheet
+   Modern, Executive Academic Layout
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --navy-header: #091124;
+    --navy-card: #0f1c3f;
+    --bg-page: #f8fafc;
+    --card-border: rgba(226, 232, 240, 0.8);
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: #1e293b;
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+/* 1. Hero Department Banner */
+.hero-banner {
+    position: relative;
+    background: linear-gradient(135deg, #091124 0%, #0f1c3f 50%, #1e3a8a 100%);
+    color: #ffffff;
+    padding: 70px 24px 60px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 20%, rgba(37, 99, 235, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.univ-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    color: #93c5fd;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 5px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(147, 197, 253, 0.3);
+    margin-bottom: 18px;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-motto {
+    font-size: 1.15rem;
+    color: #94a3b8;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.hero-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hero-tag {
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 12.5px;
+    color: #e2e8f0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hero-tag i {
+    color: #60a5fa;
+}
+
+/* 2. Key Stats Grid */
+.stat-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+.stat-icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 14px;
+}
+
+.bg-blue-subtle { background-color: #eff6ff; }
+.bg-emerald-subtle { background-color: #ecfdf5; }
+.bg-amber-subtle { background-color: #fffbeb; }
+.bg-purple-subtle { background-color: #faf5ff; }
+.text-purple { color: #8b5cf6; }
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+/* 3. Content Cards */
+.content-card {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.section-badge {
+    display: inline-block;
+    background: #eff6ff;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.section-heading {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.lead-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.image-showcase {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.image-showcase img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-caption {
+    background: rgba(9, 17, 36, 0.9);
+    color: #ffffff;
+    font-size: 12.5px;
+    padding: 8px 14px;
+    text-align: center;
+}
+
+.feature-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bullet-item {
+    font-size: 14.5px;
+    color: #334155;
+    display: flex;
+    align-items: center;
+}
+
+/* 4. Academic Programs Cards */
+.program-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 32px 24px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.program-card.featured {
+    border-color: #93c5fd;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
+}
+
+.featured-ribbon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 12px;
+}
+
+.program-type {
+    font-size: 12px;
+    font-weight: 700;
+    color: #2563eb;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.program-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 4px 0 12px;
+}
+
+.program-desc {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.program-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.program-features li {
+    font-size: 13.5px;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.program-features li i {
+    color: #10b981;
+    font-weight: bold;
+}
+
+/* 5. Subjects Banner */
+.subjects-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid var(--card-border);
+}
+
+.subject-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f1f5f9;
+    color: #1e293b;
+    font-weight: 600;
+    font-size: 13.5px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    border: 1px solid #e2e8f0;
+}
+
+/* 6. Faculty Table */
+.faculty-table thead th {
+    background-color: #0f172a;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 14px 16px;
+    border: none;
+}
+
+.faculty-table tbody td {
+    padding: 16px;
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.faculty-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 7. Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .border-end-md {
+        border-right: none !important;
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #e2e8f0;
+    }
+}
